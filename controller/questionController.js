@@ -14,7 +14,7 @@ async function question(req, res) {
     }
     try {
         await dbConnection.query("INSERT INTO questions(userid,questionid,title,description,tag) VALUES(?,?,?,?,?)",[userid,questionid,title,description,tag]);
-        return res.status(StatusCodes.CREATED).json({msg:"User created"}) 
+        return res.status(StatusCodes.CREATED).json({msg:"Question asked"}) 
 
 
     } catch (error) {
