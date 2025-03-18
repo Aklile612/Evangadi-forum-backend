@@ -48,7 +48,7 @@ const Register = () => {
                 <span>Username:------</span>
                 <input type="text" 
                 placeholder='username'
-                value={formData.name}
+                value={formData.username}
                 name='username'
                 onChange={handleChange}
                 />

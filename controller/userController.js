@@ -50,7 +50,7 @@ async function login(req,res) {
         // console.log(process.env.JWT_SECRET)
         const token =jwt.sign({username,userid},"secret",{expiresIn:"10d"})
 
-        return res.status(StatusCodes.ACCEPTED).json({msg:"you have sucessfully signed in",token})
+        return res.status(StatusCodes.ACCEPTED).json({msg:"you have sucessfully signed in",token,username})
         
         
 
