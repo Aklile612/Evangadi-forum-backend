@@ -1,8 +1,8 @@
 import { useEffect, useState,createContext } from 'react'
 import './App.css'
-import Home from './pages/Home'
+import Home from './pages/Home/Home'
 import Login from './pages/Login/Login'
-import Register from './pages/Register'
+import Register from './pages/Register/Register'
 import { Routes,Route, useNavigate } from 'react-router-dom'
 import axios from './axiosBase'
 

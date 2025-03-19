@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 import axios from '../../axiosBase'
-import '../Login/Login.css'
+import classes from'../Login/Login.module.css'
 const Login = () => {
   const Navigator=useNavigate();
   const[formData,setformData]=useState({
@@ -45,13 +45,15 @@ const Login = () => {
 
   
   return (
-    <div className='logincard'>
+  
+
+    <div className={classes.logincard}>
       
     <section>
-      <h3 className='text'> Login into your Account</h3>
-      <h4 className='text'>Don't have an account?<Link to="/register" className='textcolor'>Create a New account</Link> </h4>
+      <h3 className={classes.text}> Login into your Account</h3>
+      <h4 className={classes.text}>Don't have an account?<Link to="/register" className={classes.textcolor}>Create a New account</Link> </h4>
       <form onSubmit={handleSubmit}>
-        <div className='email'>
+        <div className={classes.email}>
          
           <input
           type="email"
@@ -62,7 +64,7 @@ const Login = () => {
           />
         </div>
         <br />
-        <div className='password'>
+        <div className={classes.password}>
           
           <input
           type="password"
@@ -73,15 +75,16 @@ const Login = () => {
           />
         </div>
         <br />
-        <div className='forgot'>
+        <div className={classes.forgot}>
           <h5>Forgot password</h5>
         </div>
         <br />
-        <button className='loginbtn' type='submit' >Login</button>
+        <button className={classes.loginbtn} type='submit' >Login</button>
       </form>
       
     </section>
     </div>
+
   )
 }
 

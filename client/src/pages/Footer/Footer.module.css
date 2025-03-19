@@ -1,11 +1,5 @@
-/* Make sure the body or main content takes up the full height */
 
-/* Main content area (if any, for example) */
-.main-content {
-    flex: 1; /* Take up the remaining space */
-}
 
-/* The footer section */
 .footer {
     /* position: fixed; */
     bottom: 0;
