@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
-import { useNavigate } from 'react-router'
-import axios from '../axiosBase'
+import { Link, useNavigate } from 'react-router'
+import axios from '../../axiosBase'
+import '../Login/Login.css'
 const Login = () => {
   const Navigator=useNavigate();
   const[formData,setformData]=useState({
@@ -44,33 +45,43 @@ const Login = () => {
 
   
   return (
+    <div className='logincard'>
+      
     <section>
+      <h3 className='text'> Login into your Account</h3>
+      <h4 className='text'>Don't have an account?<Link to="/register" className='textcolor'>Create a New account</Link> </h4>
       <form onSubmit={handleSubmit}>
-        <div>
-          <span>Email:--------</span>
+        <div className='email'>
+         
           <input
           type="email"
           name='email'
           onChange={handleChange}
-          placeholder='email'
+          placeholder='Email adrress'
           value={formData.email}
           />
         </div>
         <br />
-        <div>
-          <span>Password:---------</span>
+        <div className='password'>
+          
           <input
           type="password"
-          placeholder='password'
+          placeholder='Password'
           value={formData.password}
           name='password'
           onChange={handleChange}
-           />
+          />
         </div>
         <br />
-        <button type='submit' >Login</button>
+        <div className='forgot'>
+          <h5>Forgot password</h5>
+        </div>
+        <br />
+        <button className='loginbtn' type='submit' >Login</button>
       </form>
+      
     </section>
+    </div>
   )
 }
 

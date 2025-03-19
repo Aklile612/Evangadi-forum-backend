@@ -1,5 +1,8 @@
 import React, { useContext } from 'react'
 import { AppState } from '../App'
+import Header from './Header/Header'
+import Footer from './Footer/Footer'
+import Login from './Login/Login'
 
 
 
@@ -9,13 +12,17 @@ const Home = () => {
   console.log(user)
   return (
     <>
-      <div>
+    <Header/>
+      <div style={{paddingTop:"100px"}}>
         Home
       </div>
-      <br />
-      <br />
-      <br />
+      <Login/>
+      
+    
+     
       <h1>{user.username}</h1>
+     
+      <Footer/>
     </>
   )
 }

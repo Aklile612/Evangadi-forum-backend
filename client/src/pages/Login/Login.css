@@ -1,0 +1,45 @@
+.logincard{
+    width: 500px;
+    height: 450px;
+    border: 2px solid black;
+    margin-left: 150px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 4px 10px rgba(204, 170, 170, 0.2);
+}
+h3 {
+    margin-top: 50px;
+    margin-left: 60px;
+}
+.textcolor{
+    text-decoration: none;
+    color: #FF8A03;
+}
+.email{
+    margin-top: 50px;
+}
+.email input{
+    border-radius: 5px;
+    
+    width: 430px;
+    height: 40px;
+}
+.password input{
+    border-radius: 5px;
+    width: 430px;
+    height: 40px;
+}
+h5{
+    margin-top: -1px;
+    margin-left: 300px;
+    color: #FF8A03;
+}
+.loginbtn{
+    width: 430px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #4B4BDA;
+}
+.loginbtn:hover{
+    cursor:pointer;
+}
