@@ -9,8 +9,10 @@ import axios from './axiosBase'
 
 
 export const AppState=createContext();
+export const PageState=createContext();
 function App() {
   const [user,setuser]=useState({}) ;
+  const [holdpage,setholdpage]=useState("true")
   const token = localStorage.getItem("token");
   const Navigate=useNavigate();
   async function checkuser() {
@@ -36,13 +38,15 @@ function App() {
   
   return (
      <AppState.Provider value={{user,setuser}}>
-    
+    <PageState.Provider value={{holdpage,setholdpage}}>
+
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
       </Routes>
     
+    </PageState.Provider>
     </AppState.Provider>
   )
 }

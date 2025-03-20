@@ -6,3 +6,6 @@
 .loginhow{
     display: flex;
 }
+.customRegister{
+    background-color: blue  !important;
+}

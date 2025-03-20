@@ -31,7 +31,7 @@ h4{
 }
 .email input{
     border-radius: 5px;
-    
+    border: 1px solid grey;
     width: 430px;
     height: 40px;
 }

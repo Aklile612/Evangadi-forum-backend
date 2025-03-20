@@ -1,14 +1,28 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from '../../axiosBase'
 import classes from'../Login/Login.module.css'
+import { PageState } from '../../App'
+
+
+
 const Login = () => {
+  
+  const {holdpage,setholdpage}=useContext(PageState);
+  const changestate = ()=>{
+    if(holdpage==="false"){
+      setholdpage("true")
+    }else{
+      setholdpage("false")
+    }
+  }
   const Navigator=useNavigate();
   const[formData,setformData]=useState({
     "email":"",
    "password":""
   })
+  console.log(holdpage)
   const handleChange=(event)=>{
     setformData({
       ...formData,
@@ -42,7 +56,6 @@ const Login = () => {
     // console.log(formData)
     
   }
-
   
   return (
   
@@ -51,7 +64,7 @@ const Login = () => {
       
     <section>
       <h3 className={classes.text}> Login into your Account</h3>
-      <h4 className={classes.text}>Don't have an account?<Link to="/register" className={classes.textcolor}>Create a New account</Link> </h4>
+      <h4 className={classes.text}>Don't have an account?<Link to="/" onClick={changestate} className={classes.textcolor}>Create a New account</Link> </h4>
       <form onSubmit={handleSubmit}>
         <div className={classes.email}>
          

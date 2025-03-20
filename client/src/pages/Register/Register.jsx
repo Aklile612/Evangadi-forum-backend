@@ -1,10 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import axios from '../../axiosBase'
 import classes from "./Register.module.css"
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
+import { PageState } from '../../App'
 const Register = () => {
+    const {holdpage,setholdpage}=useContext(PageState);
+    const changestate=()=>{
+        if(holdpage==="false"){
+            setholdpage("true")
+        }else{
+            setholdpage("false")
+        }
+        }
   const Navigate=useNavigate()
   const [formData,setformData]= useState({
     "username":"",
@@ -46,14 +55,14 @@ const Register = () => {
   }
   return (
     <>
-    <Header/>
+    {/* <Header/> */}
     <div className={classes.registercard}>
 
     <section >
         <div className={classes.headers}>
 
         <h3>Join The Network</h3>
-        <div className={classes.signin}>Already have an account? <Link to="/login" className={classes.textcolor}>SignIn</Link></div>
+        <div className={classes.signin}>Already have an account? <Link to="/" onClick={changestate} className={classes.textcolor}>SignIn</Link></div>
         </div>
         <form onSubmit={handleSubmit}>
         <div className={classes.email}>
@@ -118,7 +127,7 @@ const Register = () => {
         </form>
     </section>
     </div>
-    <Footer/>
+    {/* <Footer/> */}
     </>
   )
 }
