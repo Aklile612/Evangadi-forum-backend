@@ -10,14 +10,14 @@
     z-index: 9999;
     height: 100px;
     position: fixed;
-    background: #f7e8e8;
+    background: #fffffffd;
 }
 
 /* Icon styling */
 .evanIcon img {
     margin-top: 25px; /* Adjusted for better vertical alignment */
-    width: 150px;
-    height: 50px;
+    width: 140px;
+    height: 45px;
     margin-left: 100px;
 }
 

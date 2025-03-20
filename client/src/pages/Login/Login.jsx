@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from '../../axiosBase'
 import classes from'../Login/Login.module.css'
 const Login = () => {
@@ -73,13 +73,14 @@ const Login = () => {
           name='password'
           onChange={handleChange}
           />
+          
         </div>
         <br />
         <div className={classes.forgot}>
           <h5>Forgot password</h5>
         </div>
         <br />
-        <button className={classes.loginbtn} type='submit' >Login</button>
+        <button className={classes.loginbtn} type='submit' ><p>Login</p></button>
       </form>
       
     </section>

@@ -1,3 +1,8 @@
 .home{
-    background-color: rgb(229, 241, 241);
+    /* background: linear-gradient(to bottom, #fff 40%, #d3e0ff 40%, #d3e0ff 70%, #f47c7c 70%); */
+    background:linear-gradient(135deg,#6699ff 1%, white 50%,white 50%,#fff 2% );
+    box-sizing: border-box;
+}
+.loginhow{
+    display: flex;
 }

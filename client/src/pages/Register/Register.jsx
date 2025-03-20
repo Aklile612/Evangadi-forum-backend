@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import axios from '../../axiosBase'
 import classes from "./Register.module.css"
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 const Register = () => {
   const Navigate=useNavigate()
   const [formData,setformData]= useState({
@@ -43,58 +45,81 @@ const Register = () => {
     }
   }
   return (
-    <section>
+    <>
+    <Header/>
+    <div className={classes.registercard}>
+
+    <section >
+        <div className={classes.headers}>
+
+        <h3>Join The Network</h3>
+        <div className={classes.signin}>Already have an account? <Link to="/login" className={classes.textcolor}>SignIn</Link></div>
+        </div>
         <form onSubmit={handleSubmit}>
-            <div>
-                <span>Username:------</span>
-                <input type="text" 
-                placeholder='username'
-                value={formData.username}
-                name='username'
-                onChange={handleChange}
-                />
-            </div>
-            <br/>
-            <div>
-                <span>Firstname:------</span>
-                <input type="text" placeholder='first name'
-                value={formData.firstname}
-                name='firstname'
-                onChange={handleChange}
-                />
-            </div>
-            <br/>
-            <div>
-                <span>Lastname:------</span>
-                <input type="text" placeholder='lastname'
-                value={formData.lastname}
-                name='lastname'
-                onChange={handleChange}
-                />
-            </div>
-            <br />
-            <div>
-                <span>Email:------</span>
-                <input type="email" placeholder='email'
+        <div className={classes.email}>
+                
+                <input type="email" placeholder='Email'
                 value={formData.email}
                 name='email'
                 onChange={handleChange}
                 />
             </div>
+            
+            <br/>
+            <div className={classes.firstandlast}>
+
+                <div className={classes.firstname}>
+                    
+                    <input type="text" placeholder='First name'
+                    value={formData.firstname}
+                    name='firstname'
+                    onChange={handleChange}
+                    />
+                </div>
+                <br/>
+                <div className={classes.lastname}>
+                    
+                    <input type="text" placeholder='Lastname'
+                    value={formData.lastname}
+                    name='lastname'
+                    onChange={handleChange}
+                    />
+                </div>
+            </div>
             <br />
-            <div>
-                <span>Password:------</span>
-                <input type="password" placeholder='password'
+            <div className={classes.username}>
+                
+                <input type="text" 
+                placeholder='Username'
+                value={formData.username}
+                name='username'
+                onChange={handleChange}
+                />
+            </div>
+            <br />
+            <div className={classes.password}>
+                
+                <input type="password" placeholder='Password'
                 value={formData.password}
                 name='password'
                 onChange={handleChange}
                 />
             </div>
             <br />
-            <button type='submit'>Register</button>
-            
+            <button type='submit' className={classes.submit}><p>Agree and Continue</p></button>
+            <div className={classes.privacy}>
+                
+                <p>I agree to <Link to="/privacy" className={classes.textcolor}>privacy policy</Link> and <Link to="/termsofservice" className={classes.textcolor}>terms of service</Link>.</p>
+            </div>
+            <div className={classes.already}>
+            <p> <Link to="/login" className={classes.textcolor}>Already have an account?</Link></p>
+
+            </div>
         </form>
     </section>
+    </div>
+    <Footer/>
+    </>
   )
 }
 

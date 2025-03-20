@@ -7,9 +7,9 @@
     display: flex;
     justify-content: space-between; /* Space the sections out */
     padding: 10px; /* Optional padding for better look */
-    background-color: #928e8e; /* Optional background color */
+    background-color: #1F2331; /* Optional background color */
     box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1); 
-   
+    margin-top: 10px;   
 }
 
 .images {
