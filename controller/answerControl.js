@@ -1,9 +1,10 @@
 const dbConnection =require('../db/dbConfig')
 const {StatusCodes} =require('http-status-codes')
-
-async function answers(req,res) {
+//add answers
+async function addanswers(req,res) {
+    const {questionid}=req.params;
     const {username,userid} =req.user
-    const {questionid,answer}=req.body;
+    const {answer}=req.body;
 
     if(!questionid || !answer){
         return res.status(StatusCodes.BAD_REQUEST).json({msg:"please provide all datas"});
@@ -18,5 +19,25 @@ async function answers(req,res) {
     }
 
 }
+//see answers
+async function queryallanswers(req,res) {
+    const {questionid}=req.params;
+    try {
+        const [result] = await dbConnection.query(`
+            select users.username,answers.answer
+            from answers
+            inner join questions on answers.questionid=questions.questionid
+            inner join users on answers.userid=users.userid
+            where answers.questionid=?
+            order by answers.answerid desc`,[questionid]);
+        if (result.length===0){
+            res.status(StatusCodes.NOT_FOUND).json({msg:"NO question found"})
+        }
+        res.status(StatusCodes.OK).json({msg:"answer found",result})
+    } catch (error) {
+        console.log(error)
+        res.status(StatusCodes.NOT_FOUND).json({msg:"NO answers recorded"})
+    }
+}
 
-module.exports={answers}
+module.exports={addanswers,queryallanswers}

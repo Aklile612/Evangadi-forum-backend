@@ -1,5 +1,5 @@
 import React from 'react'
-import image from '../../assets/10001.png'
+import white from '../../assets/white.png'
 import classes from '../Footer/Footer.module.css';
 import { CiFacebook } from "react-icons/ci";
 import { FaInstagram } from "react-icons/fa6";
@@ -9,19 +9,22 @@ const Footer = () => {
     <>
       <div className={classes.footer}>
         <div className={classes.images}>
-            <img src={image} alt="evangadi icon" />
-            <CiFacebook className={classes.icon}/>
-            <FaInstagram className={classes.icon} />
-            
-            <FaYoutube className={classes.icon} />
+            <img src={white} alt="evangadi icon" />
         </div>
+          <div className={classes.icons}>
+
+            <CiFacebook className={classes.icon}/>
+            <FaInstagram className={classes.icon} />  
+            <FaYoutube className={classes.icon} />
+          </div>
         <div className={classes.usefulink}>
-            <p>Useful Link</p>
+            <p className={classes.headers}> Useful Link</p>
             <p>How it works</p>
             <p>Terms of service</p>
             <p>privacy Policy</p>
         </div>
         <div className={classes.Contactinfo}>
+            <p className={classes.headers}>Contact Info</p>
             <p>Evangadi Networks</p>
             <p>Support@evangadi.com</p>
             <p>+1-234-202-5678</p>

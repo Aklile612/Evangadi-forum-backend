@@ -10,6 +10,7 @@ import { PageState } from '../../App'
 const Login = () => {
   
   const {holdpage,setholdpage}=useContext(PageState);
+  const [errmsg,seterrmsg]=useState("");
   const changestate = ()=>{
     if(holdpage==="false"){
       setholdpage("true")
@@ -46,12 +47,16 @@ const Login = () => {
 
       }
     )
-    alert(" Loged IN-> Home page")
-    // Navigator("/")
+    seterrmsg("")
+    // alert(" Loged IN-> Home page")
+    Navigator("/home")
     localStorage.setItem("token",data.token)
     } catch (error) {
-      console.log(error)
-      alert("please enter the correct data")
+      if (error.response){
+      seterrmsg(error.response.data.msg);
+      console.log(error.response.data)
+      // alert(error.response.data.msg)
+    }
     }
     // console.log(formData)
     
@@ -63,6 +68,9 @@ const Login = () => {
     <div className={classes.logincard}>
       
     <section>
+      <div className={classes.error}>
+      {errmsg?errmsg:""}
+      </div>
       <h3 className={classes.text}> Login into your Account</h3>
       <h4 className={classes.text}>Don't have an account?<Link to="/" onClick={changestate} className={classes.textcolor}>Create a New account</Link> </h4>
       <form onSubmit={handleSubmit}>

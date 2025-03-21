@@ -6,6 +6,8 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import { PageState } from '../../App'
 const Register = () => {
+    const navigate=useNavigate();
+    const [errmsg,seterrmsg]=useState("");
     const {holdpage,setholdpage}=useContext(PageState);
     const changestate=()=>{
         if(holdpage==="false"){
@@ -37,6 +39,7 @@ const Register = () => {
     const passwordValue=formData.password;
     if(!usernameValue||!firstnameValue||!lastnameValue||!emailValue||!passwordValue){
         alert("please provide all data")
+        seterrmsg(error.response.data.msg)
         return
     }
     try {
@@ -48,17 +51,23 @@ const Register = () => {
             password:passwordValue
         })
         alert("user registered successfully please logIn")
-        Navigate("/login")
+        navigate("/")
     } catch (error) {
-        console.log(error)  
+        if(error.response){
+            seterrmsg(error.response.data.msg)
+        }
+        // alert()
+        console.log(error.response.data)  
     }
   }
   return (
     <>
     {/* <Header/> */}
     <div className={classes.registercard}>
-
     <section >
+    <div className={classes.error}>
+        {errmsg?errmsg:""}
+    </div>
         <div className={classes.headers}>
 
         <h3>Join The Network</h3>

@@ -1,4 +1,8 @@
+.error{
+    color:red;
+    font-weight: bold;
 
+}
 .logincard{
     background-color: #fff;
     width: 500px;
@@ -37,6 +41,7 @@ h4{
 }
 .password input{
     border-radius: 5px;
+    border: 1px solid grey;
     width: 430px;
     height: 40px;
 }
