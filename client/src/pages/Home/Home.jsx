@@ -1,11 +1,34 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import classes from './Home.module.css'
 import { AppState } from '../../App'
+import axios from '../../axiosBase'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faUser,faGreaterThan} from '@fortawesome/free-solid-svg-icons'
 
 const Home = () => {
     const {user}=useContext(AppState)
+    const [userquestion,setuserquestion]=useState([])
+    async function getallquestion() {
+            try {
+              const token=localStorage.getItem("token")
+              const {data}= await axios.get("/question/get-question",{
+                headers:{
+                  Authorization: 'Bearer '+ token
+                }
+              })
+              console.log(data.result[0].username)
+              setuserquestion(data.result)
+              // alert("questions found")
+            } catch (error) {
+              console.log(error.response.data)
+            }      
+    }
+    useEffect(()=>{
+      getallquestion()
+    },[])
+    
   return (
     <>
      <Header/>
@@ -14,7 +37,21 @@ const Home = () => {
             <button className={classes.askquestion}> Ask Question</button>
             <h6>welcome: {user.username}</h6>
         <h3>Questions</h3>
-        <hr />
+        <hr style={{marginLeft:"185px",border:"1px solid grey",marginRight:"185px"}}/>
+        <div className={classes.questions}>
+          <ul>
+            {userquestion.map((q,index) =>(
+              <li className={classes.singlequestion} key={index}>
+                {/* <div className={classes.forview}></div> */}
+                <FontAwesomeIcon icon={faUser} className={classes.user}/>
+                <div className={classes.description}>{q.title}</div>
+                <FontAwesomeIcon icon={faGreaterThan} className={classes.next}/>
+                <div className={classes.username} >{q.username}</div>
+                <hr style={{marginLeft:"0px",border:"1px solid grey",marginRight:"0px",width:"965px",marginTop:"-6px"}} />
+              </li>
+            ))}
+          </ul>
+          </div>
         </div>
      </div>
      <Footer/> 

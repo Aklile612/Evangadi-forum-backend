@@ -7,7 +7,10 @@ async function getallquestion(req,res) {
     try {
         
         const [result]=await dbConnection.query(
-            'select questions.description,questions.title,users.username from questions join users on questions.userid=users.userid order by questions.id desc;'
+            `select questions.description,questions.title,users.username 
+            from questions 
+            join users on questions.userid=users.userid 
+            order by questions.id desc;`
         )
         res.status(StatusCodes.ACCEPTED).json({msg:"Successfully acquired questions",result})
     } catch (error) {
