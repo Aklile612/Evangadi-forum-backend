@@ -6,6 +6,7 @@ import Register from './pages/Register/Register'
 import { Routes,Route, useNavigate } from 'react-router-dom'
 import axios from './axiosBase'
 import Home from './pages/Home/Home'
+import QuestionPage from './pages/Question/QuestionPage'
 
 
 
@@ -46,6 +47,7 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/home' element={<Home/>}/>
+        <Route path='/askquestion' element={<QuestionPage/>}/>
       </Routes>
     
     </PageState.Provider>
