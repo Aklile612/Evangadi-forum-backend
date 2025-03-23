@@ -6,7 +6,7 @@ import { AppState } from '../../App'
 import axios from '../../axiosBase'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faUser,faGreaterThan} from '@fortawesome/free-solid-svg-icons'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
     const {user}=useContext(AppState)
@@ -35,7 +35,11 @@ const Home = () => {
      <Header/>
      <div className={classes.home}>
         <div className={classes.head}>
-            <button className={classes.askquestion}><Link to="/askquestion" className={classes.askbtn}>Ask Question</Link></button>
+              <Link to="/askquestion" className={classes.askbtn}>
+            <button className={classes.askquestion}>
+              Ask Question
+              </button>
+              </Link>
             <h6>welcome: {user.username}</h6>
         <h3>Questions</h3>
         <hr style={{marginLeft:"185px",border:"1px solid grey",marginRight:"185px"}}/>
