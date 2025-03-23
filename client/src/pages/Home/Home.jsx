@@ -43,11 +43,13 @@ const Home = () => {
             {userquestion.map((q,index) =>(
               <li className={classes.singlequestion} key={index}>
                 {/* <div className={classes.forview}></div> */}
-                <FontAwesomeIcon icon={faUser} className={classes.user}/>
-                <div className={classes.description}>{q.title}</div>
-                <FontAwesomeIcon icon={faGreaterThan} className={classes.next}/>
+                <FontAwesomeIcon icon={faUser} className={classes.user}/>  
+                <div className={classes.questionandbutton}>
+                  <div className={classes.description}>{q.title}</div>
+                  <FontAwesomeIcon icon={faGreaterThan} className={classes.next}/>
+                </div>
                 <div className={classes.username} >{q.username}</div>
-                <hr style={{marginLeft:"0px",border:"1px solid grey",marginRight:"0px",width:"965px",marginTop:"-6px"}} />
+                <hr style={{marginLeft:"0px",border:"1px solid grey",marginRight:"0px",width:"965px",marginTop:"-6px",display:"block"}} />
               </li>
             ))}
           </ul>
