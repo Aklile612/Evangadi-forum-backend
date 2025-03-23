@@ -14,15 +14,21 @@
     height: 35px;
     width: 190px;
     text-align: center;
-    color:#ffffff;    
+     
     border-radius: 5px;
     background-color: #4B4BDA;
     /* font-weight: bold; */
+    
+}
+.askbtn{
+    text-decoration: none;
+    color:#ffffff;   
 }
 .askquestion:hover{
     cursor: pointer;
     transform: translateY(-5px);
     background-color: #FF8A03;
+    
 }
 h3{
     margin-left: 185px;
