@@ -74,7 +74,7 @@ const QuestionPage = () => {
                 <input
                  
                  type="text"
-                 placeholder='Type your qustion'
+                 placeholder='Type your Question'
                  value={questions.question}
                  name='question'
                  onChange={handleChange}

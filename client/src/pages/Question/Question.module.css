@@ -1,0 +1,74 @@
+.questionlist{
+    list-style:disc;
+}
+.stepstowrite{
+    margin-left: -23px;
+    font-size: 26px;
+    margin-bottom: -10px;
+}
+.questionpage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+.questioncard{
+    height: 400px;
+    width: 1000px;
+    /* border: 1px solid black; */
+    display: flex;
+    border-radius: 5px;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 30px;
+    box-shadow: 0px  4px 10px rgba(158, 144, 144, 0.959);
+
+}
+h{
+    font-size: 20px;
+    font-family: sans-serif;
+    margin-left: -40px;
+    margin-bottom: -10px;
+}
+.gotohome{
+    text-decoration: none;
+    color: rgb(73, 71, 69);
+    margin-left: -39px;
+    font-size: 13px;
+    margin-top: -12px;
+}
+
+.title input{
+    border:1px solid grey;
+    margin: 3px;
+    width: 150vh;
+    height: 40px;
+    border-radius: 5px;
+}
+.description input {
+    margin-left: 4px;
+    border:1px solid grey;
+    width: 150vh;
+    height: 200px;
+    border-radius: 5px;
+    text-align: start;
+    margin-top: 6px;
+    padding: 0;
+}
+
+.postbtn{
+    all: unset;
+    width: 200px;
+    height: 30px;
+    /* border: 1px solid black; */
+    margin-top: 6px;
+    margin-left: 4px;
+    text-align: center;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #4B4BDA;
+
+}
