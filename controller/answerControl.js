@@ -24,14 +24,16 @@ async function queryallanswers(req,res) {
     const {questionid}=req.params;
     try {
         const [result] = await dbConnection.query(`
-            select users.username,answers.answer
-            from answers
-            inner join questions on answers.questionid=questions.questionid
-            inner join users on answers.userid=users.userid
-            where answers.questionid=?
-            order by answers.answerid desc`,[questionid]);
+            SELECT users.username, answers.answer, questions.title, questions.description
+            FROM questions
+            LEFT JOIN answers ON answers.questionid = questions.questionid
+            LEFT JOIN users ON answers.userid = users.userid
+            WHERE questions.questionid = ?
+            ORDER BY answers.answerid DESC;`,[questionid]);
+            
         if (result.length===0){
-            res.status(StatusCodes.NOT_FOUND).json({msg:"NO question found"})
+            res.status(StatusCodes.NOT_FOUND).json({msg:"NO question found",})
+            return;
         }
         res.status(StatusCodes.OK).json({msg:"answer found",result})
     } catch (error) {
