@@ -7,12 +7,14 @@ import { Routes,Route, useNavigate } from 'react-router-dom'
 import axios from './axiosBase'
 import Home from './pages/Home/Home'
 import QuestionPage from './pages/Question/QuestionPage'
+import AnswerPage from './pages/AnswerPage/AnswerPage'
 
 
-
+export const QuestionState=createContext();
 export const AppState=createContext();
 export const PageState=createContext();
 function App() {
+  const [holdindex,setholdindex]=useState("")
   const [user,setuser]=useState({}) ;
   const [holdpage,setholdpage]=useState("true")
   const token = localStorage.getItem("token");
@@ -39,19 +41,20 @@ function App() {
   
   
   return (
+    <QuestionState.Provider value={{holdindex,setholdindex}}>
      <AppState.Provider value={{user,setuser}}>
     <PageState.Provider value={{holdpage,setholdpage}}>
-
       <Routes>
         <Route path='/' element={<LandingPage/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/home' element={<Home/>}/>
         <Route path='/askquestion' element={<QuestionPage/>}/>
+        <Route path='/answerpage/:id' element={<AnswerPage/>}/>
       </Routes>
-    
     </PageState.Provider>
     </AppState.Provider>
+    </QuestionState.Provider>
   )
 }
 
